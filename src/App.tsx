@@ -19,9 +19,6 @@ const Rating: React.FC<Props> = ({
   const [hoverState, setHoverState] = useState<number | undefined>();
   const [clickIndex, setClickIndex] = useState<number | undefined>();
 
-  console.log("clickIndex", clickIndex);
-
-  console.log("hoverState", hoverState);
   return (
     <div
       className={[
@@ -77,7 +74,7 @@ function App() {
       onChange={setRating}
       icon="star"
       size={48}
-      count={10}
+      count={5}
     />
   );
 }
