@@ -9,6 +9,7 @@ const Icon: React.FC<IconProps> = ({
   fillUnselected = "#EEEEEE",
   stroke: st,
   isSelected,
+  justClicked,
   ...rest
 }) => {
   const defaultFillSelected = icon === "star" ? "#f5e100" : "#ff0044";
@@ -21,7 +22,8 @@ const Icon: React.FC<IconProps> = ({
     <svg
       height={size}
       width={size}
-      id={makeClassName(`${icon}-icon`)}
+      id={makeClassName("icon")}
+      className={justClicked ? makeClassName(`clicked`) : ""}
       {...rest}
     >
       <path style={{ fill, stroke }} d={d} />

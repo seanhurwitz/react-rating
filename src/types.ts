@@ -16,6 +16,7 @@ interface IconProps extends React.SVGAttributes<unknown> {
   fillUnselected?: string;
   stroke?: string;
   isSelected?: boolean;
+  justClicked: boolean;
 }
 
 type icons = "star" | "heart";

@@ -17,6 +17,10 @@ const Rating: React.FC<Props> = ({
 }) => {
   const isDynamic = !!onChange;
   const [hoverState, setHoverState] = useState<number | undefined>();
+  const [clickIndex, setClickIndex] = useState<number | undefined>();
+
+  console.log("clickIndex", clickIndex);
+
   console.log("hoverState", hoverState);
   return (
     <div
@@ -36,6 +40,7 @@ const Rating: React.FC<Props> = ({
               : index < rating;
           return icon ? (
             <Icon
+              justClicked={clickIndex === index}
               icon={icon || "star"}
               fillSelected={iconFillSelected}
               fillUnselected={iconFillUnselected}
@@ -44,7 +49,10 @@ const Rating: React.FC<Props> = ({
               size={size}
               isSelected={isSelected}
               onClick={() => {
-                onChange?.(index + 1);
+                if (onChange) {
+                  onChange(index + 1);
+                  setClickIndex(index);
+                }
               }}
               onMouseEnter={() => {
                 isDynamic && setHoverState(index);
@@ -67,7 +75,7 @@ function App() {
     <Rating
       rating={rating}
       onChange={setRating}
-      icon="heart"
+      icon="star"
       size={48}
       count={10}
     />
