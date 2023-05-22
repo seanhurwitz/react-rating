@@ -1,0 +1,11 @@
+.react-rating__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.react-rating__container_frozen {
+  cursor: default;
+}
