@@ -5,21 +5,23 @@ import { getHeartPath, getStarPath } from "./paths";
 const Icon: React.FC<IconProps> = ({
   icon,
   size = 16,
-  fillSelected = "#f5e100",
+  fillSelected,
   fillUnselected = "#EEEEEE",
-  stroke,
+  stroke: st,
   isSelected,
   ...rest
 }) => {
-  const fill = isSelected ? fillSelected : fillUnselected;
+  const defaultFillSelected = icon === "star" ? "#f5e100" : "#ff0044";
+  const fill = isSelected
+    ? fillSelected || defaultFillSelected
+    : fillUnselected;
+  const stroke = isSelected ? st : undefined;
   const d = icon === "star" ? getStarPath(size) : getHeartPath(size);
   return (
     <svg
       height={size}
       width={size}
-      version="1.1"
       id={makeClassName(`${icon}-icon`)}
-      xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <path style={{ fill, stroke }} d={d} />

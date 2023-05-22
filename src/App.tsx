@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Icon } from "./icons";
+import Icon from "./Icon";
 import "./styles.css";
 import { Props } from "./types";
 import { makeClassName } from "./utils";
@@ -68,10 +68,8 @@ function App() {
       rating={rating}
       onChange={setRating}
       icon="heart"
-      size={24}
+      size={48}
       count={10}
-      iconFillSelected="white"
-      iconStroke="red"
     />
   );
 }
